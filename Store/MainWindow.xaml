@@ -4,9 +4,33 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Store"
+        xmlns:v="clr-namespace:Store.Views"
+        xmlns:conv="clr-namespace:Store.Converters"
+        xmlns:vm="clr-namespace:Store.ViewModels"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+    <Window.Resources>
+        <ResourceDictionary Source="pack://application:,,,/DesignData/TabStrip.xaml"/>
+    </Window.Resources>
+    <Window.DataContext>
+        <vm:MainViewModel/>
+    </Window.DataContext>
+    <TabControl TabStripPlacement="Left">
+        <TabItem Content="{StaticResource clients}">
+            <TabItem.Header>
+                <StackPanel Orientation="Vertical">
+                    <Image Source="{StaticResource clients_icon}"/>
+                    <TextBlock Text="Клиенты"/>
+                </StackPanel>
+            </TabItem.Header>
+        </TabItem>
+        <TabItem Content="{StaticResource orders}">
+            <TabItem.Header>
+                <StackPanel Orientation="Vertical">
+                    <Image Source="{StaticResource orders_icon}"/>
+                    <TextBlock Text="Заказы"/>
+                </StackPanel>
+            </TabItem.Header>
+        </TabItem>
+    </TabControl>
 </Window>
